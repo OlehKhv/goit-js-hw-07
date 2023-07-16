@@ -9,8 +9,6 @@ const lightbox = new SimpleLightbox('.gallery__link', {
     captionDelay: 250,
 });
 
-listEl.addEventListener('click', onClick);
-
 function addMarkup(arrGallery) {
     const markup = arrGallery
         .map(
@@ -29,6 +27,3 @@ function addMarkup(arrGallery) {
     listEl.innerHTML = markup;
 }
 
-function onClick(e) {
-    e.preventDefault();
-}
