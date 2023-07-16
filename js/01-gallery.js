@@ -6,18 +6,27 @@ let instance;
 addMarkup(galleryItems);
 
 listEl.addEventListener('click', onClick);
-window.addEventListener('keydown', closeModal);
 
 function onClick(e) {
     e.preventDefault();
 
-    if (e.target.nodeName !== "IMG") {
+    if (e.target.nodeName !== 'IMG') {
         return;
     }
 
-    instance = basicLightbox.create(`
+    instance = basicLightbox.create(
+        `
     <img src=${e.target.dataset.source} width="1280">
-`);
+`,
+        {
+            onShow: instance => {
+                document.addEventListener('keydown', closeModal);
+            },
+            onClose: instance => {
+                document.removeEventListener('keydown', closeModal);
+            },
+        }
+    );
 
     instance.show();
 }
