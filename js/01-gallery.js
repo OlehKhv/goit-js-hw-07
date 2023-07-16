@@ -11,7 +11,7 @@ window.addEventListener('keydown', closeModal);
 function onClick(e) {
     e.preventDefault();
 
-    if (!e.target.classList.contains('gallery__image')) {
+    if (e.target.nodeName !== "IMG") {
         return;
     }
 
