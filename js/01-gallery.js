@@ -19,10 +19,10 @@ function onClick(e) {
     <img src=${e.target.dataset.source} width="1280">
 `,
         {
-            onShow: instance => {
+            onShow() {
                 document.addEventListener('keydown', closeModal);
             },
-            onClose: instance => {
+            onClose() {
                 document.removeEventListener('keydown', closeModal);
             },
         }
